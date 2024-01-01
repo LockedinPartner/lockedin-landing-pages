@@ -1,6 +1,7 @@
 import { Approach } from "@/components/home/approach";
 import { Features } from "@/components/home/features";
 import { Hero } from "@/components/home/hero";
+import { HowItWorks } from "@/components/home/howitworks";
 import { Navbar } from "@/components/ui/navbar";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero/>
       <Approach/>
       <Features/>
+      <HowItWorks/>
     </div>
   );
 }

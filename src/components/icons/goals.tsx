@@ -10,9 +10,9 @@ export function Goals(props: React.SVGProps<SVGSVGElement>) {
       <g
         fill="none"
         stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.5"
       >
         <path d="M10.66 10.66A1.9 1.9 0 0 0 10.1 12a1.9 1.9 0 0 0 1.9 1.9a1.9 1.9 0 0 0 1.34-.56" />
         <path d="M12 6.3a5.7 5.7 0 1 0 5.7 5.7" />

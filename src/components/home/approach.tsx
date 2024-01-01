@@ -53,22 +53,23 @@ export function Approach() {
                   className="w-8 h-8 text-primary mr-4"
                 />
                 <div>
-                  <h3 className="mt-4 text-lg font-semibold">{item.title}</h3>
-                  <p className="mt-4 text-gray-600 lg:w-[80%]">{item.description}</p>
+                  <h3 className="mt-4 text-lg font-semibold text-[#353131]">{item.title}</h3>
+                  <p className="mt-4 text-[#72716F] lg:w-[80%]">
+                    {item.description}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-
         <div className="w-full bg-[#72D560] h-[691px] rounded-3xl p-5 md:p-12 overflow-hidden">
           <Image
-          src="/focus.png"
-          alt="Focus"
-          width={500}
-          height={864}
-          className="relative top-7 w-full object-cover h-auto rounded-3xl mb-8"
+            src="/focus.png"
+            alt="Focus"
+            width={500}
+            height={864}
+            className="relative top-7 w-full object-cover h-auto rounded-3xl mb-8"
           />
         </div>
       </div>

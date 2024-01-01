@@ -1,8 +1,6 @@
-import { RiP2pLine } from "../icons/p2p";
-import { Goals } from "../icons/goals";
-import { GameHandle } from "../icons/gameHandle";
 import { Header } from "../ui/header";
 import Image from "next/image";
+import { MoveRight } from "lucide-react";
 
 const data = [
   {
@@ -39,15 +37,13 @@ export function HowItWorks() {
 
       <div className="w-[93%] mx-auto py-12">
         <div className="w-full flex flex-col md:flex-row justify-between items-start">
-          <div>
-            {data.map((item) => (
+          {data.map((item) => (
+            <div className="w-full h-full flex items-center gap-3">
               <div
                 key={item.id}
                 className={`mb-8 ${
-                  item.id < data.length
-                    ? "max-lg:border-l-2 md:border-r-2 border-[#E1E0E2]"
-                    : ""
-                } flex items-start`}
+                  item.id < data.length ? "" : ""
+                } flex items-center`}
               >
                 <div className="px-5 md:px-8 lg:px-10">
                   <Image
@@ -66,13 +62,14 @@ export function HowItWorks() {
                     <p className="mt-4 text-[#72716F]">{item.description}</p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
 
-          <div>
-            
-          </div>
+                {item.id < data.length &&
+                  <div className="flex items-center justify-center max-md:hidden">
+                  <MoveRight size={35} />
+                </div>}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

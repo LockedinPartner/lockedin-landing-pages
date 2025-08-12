@@ -11,3 +11,15 @@
 	font-family: "General Sans", sans-serif;
 	font-optical-sizing: auto;
 }
+.svg-crisp {
+  shape-rendering: crispEdges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.svg-smooth {
+  shape-rendering: geometricPrecision;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: auto;
+}

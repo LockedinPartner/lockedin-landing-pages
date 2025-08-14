@@ -28,7 +28,7 @@ const data = [
 
 export function HowItWorks() {
   return (
-    <div className="w-full">
+    <div className="w-full" id="howitworks">
       <Header
         tag="How it works"
         title="From solo to paired productivity"
@@ -38,7 +38,10 @@ export function HowItWorks() {
       <div className="w-[93%] mx-auto py-12">
         <div className="w-full flex flex-col md:flex-row justify-between items-start">
           {data.map((item) => (
-            <div className="w-full h-full flex items-center gap-3">
+            <div
+              key={item.id}
+              className="w-full h-full flex items-center gap-3"
+            >
               <div
                 key={item.id}
                 className={`mb-8 ${
@@ -63,10 +66,11 @@ export function HowItWorks() {
                   </div>
                 </div>
 
-                {item.id < data.length &&
+                {item.id < data.length && (
                   <div className="flex items-center justify-center max-md:hidden">
-                  <MoveRight size={35} />
-                </div>}
+                    <MoveRight size={35} />
+                  </div>
+                )}
               </div>
             </div>
           ))}

@@ -5,13 +5,13 @@ import Link from "next/link";
 export function Hero() {
   return (
     <>
-      <div className="mt-8 mb-20 relative w-[93%] mx-auto py-16 bg-[#F0F0F0] flex flex-col items-center justify-center">
+      <div className="mt-8 mb-20 relative w-[93%] mx-auto py-16 bg-[#F0F0F0] flex flex-col items-center justify-center overflow-hidden">
         <div
           className="w-full absolute inset-0 bg-cover bg-center h-full rounded-4xl overflow-hidden"
           style={{ backgroundImage: "url('/hero-bg.png')" }}
         />
         {/* title and description section */}
-        <div className="z-10 mt-10">
+        <div className="z-10 mt-7 md:mt-10">
           <div className="absolute inset-0">
             <Image
               src={`/trophy.svg`}
@@ -19,7 +19,7 @@ export function Hero() {
               width={100}
               height={100}
               priority
-              className={`w-[55px] md:w-[88px] top-12 absolute left-[-1rem] md:left-[5vw]`}
+              className={`w-[55px] md:w-[88px] top-10 md:top-12 absolute left-[-1rem] md:left-[5vw]`}
             />
 
             <Image
@@ -28,23 +28,23 @@ export function Hero() {
               width={100}
               height={100}
               priority
-              className={`w-[55px] md:w-[88px] absolute top-12 right-[-1rem] md:right-[5vw]`}
+              className={`w-[55px] md:w-[88px] absolute top-10 md:top-12 right-[-1rem] md:right-[5vw]`}
             />
           </div>
-          <h1 className="text-4xl xl:text-5xl font-semibold text-center text-[#222221]">
+          <h1 className="text-2xl md:text-4xl xl:text-5xl font-semibold text-center text-[#222221]">
             Like Minds. One Mission.{" "}
           </h1>
-          <p className="mt-4 mx-auto text-lg text-center text-[#696363]">
+          <p className="mt-4 mx-auto max-md:w-[95%] text-sm md:text-lg text-center text-[#696363]">
             Transform solo productivity into shared accountability. Lock in with
             a partner, <br className="max-lg:hidden" /> crush your goals, and
             build unstoppable momentum together.{" "}
           </p>
 
           {/* button section */}
-          <div className="z-[11] relative mt-7 flex items-center justify-center space-x-7 max-lg:hidden">
+          <div className="z-[11] relative mt-7 flex flex-row items-center justify-center space-x-4 md:space-x-7">
             <button
               type="button"
-              className="bg-white py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-sm border border-[#F5F5F5] hover:bg-opacity-90 transition-all duration-300 rounded-xl hover:bg-[#eee] cursor-pointer"
+              className="bg-white py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm border border-[#E0E0DE] lg:hover:bg-opacity-90 transition-all duration-300 rounded-xl lg:hover:bg-[#eee] cursor-pointer"
             >
               Watch Demo
               <svg
@@ -53,7 +53,9 @@ export function Hero() {
                 viewBox="0 0 32 33"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="max-md:w-5"
               >
+                <title>Demo svg</title>
                 <path
                   d="M16 28.5C22.6274 28.5 28 23.1274 28 16.5C28 9.87258 22.6274 4.5 16 4.5C9.37258 4.5 4 9.87258 4 16.5C4 23.1274 9.37258 28.5 16 28.5Z"
                   fill="#FFC727"
@@ -76,9 +78,9 @@ export function Hero() {
             <Link
               target="_blank"
               href="https://lockedin-two.vercel.app/register"
-              className="bg-[#72D560] py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-sm hover:opacity-80 transition-all duration-300 rounded-xl cursor-pointer"
+              className="bg-[#72D560] py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm lg:hover:opacity-80 transition-all duration-300 rounded-xl cursor-pointer"
             >
-              Start now <ArrowRight />
+              Start now <ArrowRight className="max-md:w-5" />
             </Link>
           </div>
         </div>
@@ -91,7 +93,18 @@ export function Hero() {
               height={463}
               src="/hero-profile-one.png"
               alt="Profile One"
-              className="relative object-contain svg-smooth"
+              className="relative object-contain svg-smooth max-lg:hidden"
+              quality={100}
+              priority
+            />
+          </div>
+          <div>
+            <Image
+              width={253}
+              height={320}
+              src="/hero-profile-one-mobile.png"
+              alt="Profile One"
+              className="w-full h-full relative object-contain svg-smooth lg:hidden"
               quality={100}
               priority
             />
@@ -100,7 +113,7 @@ export function Hero() {
             <Image
               width={107}
               height={92}
-              className="relative lg:top-8 lg:left-[-2rem]"
+              className="relative max-md:w-14 lg:top-8 lg:left-[-2rem]"
               src="/dart.svg"
               alt="Dart"
               priority
@@ -110,7 +123,16 @@ export function Hero() {
               height={298}
               src="/hero-profile-two.png"
               alt="Profile Two"
-              className="relative object-contain svg-smooth"
+              className="relative object-contain svg-smooth max-lg:hidden"
+              quality={100}
+              priority
+            />
+            <Image
+              width={331}
+              height={200}
+              src="/hero-profile-two-mobile.png"
+              alt="Profile Two"
+              className="w-full h-full relative object-contain svg-smooth lg:hidden"
               quality={100}
               priority
             />

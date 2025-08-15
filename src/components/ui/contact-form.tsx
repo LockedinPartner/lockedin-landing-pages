@@ -4,14 +4,14 @@ import { Comments } from "../icons/comments";
 
 export function ContactForm() {
   return (
-    <form className="w-full lg:max-w-[392px] mx-auto p-6 bg-[#FCFCFC] rounded-lg">
+    <form className="w-full lg:max-w-[392px] mx-auto p-6 bg-[#FCFCFC] rounded-2xl md:rounded-lg">
       <h2 className="text-xs mb-4 text-[#72D560]">FEEDBACK</h2>
 
-      <div className="text-2xl tracking-tighter">
+      <div className="max-lg:font-medium text-lg lg:text-2xl lg:tracking-tighter">
         <p className="text-[#222221] lg:w-[80%] mb-2">
           Focus with accountability, Earn rewards,
           <span className="text-[#A9A5B1]">
-            &nbsp; Level up your productivity
+            &nbsp;Level up your productivity
           </span>{" "}
         </p>
       </div>
@@ -54,16 +54,16 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
-        className="w-full mt-3 bg-[#222221] text-white text-sm font-semibold py-3 hover:opacity-90 transition-all duration-200 cursor-pointer rounded-xl"
+        className="w-full mt-1 md:mt-3 bg-[#222221] text-white text-sm font-semibold py-3 hover:opacity-90 transition-all duration-200 cursor-pointer rounded-xl"
       >
         Send a request
       </button>
 
-      <p className="mt-8">
+      <p className="mt-3 md:mt-8">
         <Link
           target="_blank"
           href="/#"
-          className="mt-8 text-[#222221] text-sm hover:underline"
+          className="mt-8 text-[#222221]/40 text-xs md:text-sm hover:underline"
         >
           Privacy
         </Link>

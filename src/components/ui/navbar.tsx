@@ -1,58 +1,144 @@
+"use client"
+import { X } from "lucide-react";
 import Link from "next/link";
+import { useState } from "react";
 
 export function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+
   return (
-    <nav className="bg-[#F7F7F7] w-[93%] lg:w-[85vw] mx-auto border border-[#ECECEC] py-3 px-6 md:p-4 rounded-2xl mt-5 md:mt-7">
-      <div className="container mx-auto flex justify-between items-center">
-        <div className="text-black text-base md:text-xl font-semibold">LockedIn</div>
+    <>
+      <nav className="bg-[#F7F7F7] w-[93%] lg:w-[85vw] mx-auto border border-[#ECECEC] py-3 px-6 md:p-4 rounded-2xl mt-5 md:mt-7">
+        <div className="container mx-auto flex justify-between items-center">
+          <div className="text-black text-base md:text-xl font-semibold">
+            LockedIn
+          </div>
 
-        <div className="relative left-10 flex space-x-10 max-lg:hidden">
-          <Link
-            href="/"
-            className="text-[#222221] hover:text-[#72D560] squiggly-underline "
-          >
-            Features
-          </Link>
+          <div className="relative left-10 flex space-x-10 max-lg:hidden">
+            <Link
+              href="/"
+              className="text-[#222221] hover:text-[#72D560] squiggly-underline "
+            >
+              Features
+            </Link>
 
-          <Link
-            href="/#solution"
-            className="text-[#222221] hover:text-[#72D560] "
-          >
-            Solution
-          </Link>
+            <Link
+              href="/#solution"
+              className="text-[#222221] hover:text-[#72D560] "
+            >
+              Solution
+            </Link>
 
-          <Link
-            href="/#howitworks"
-            className="text-[#222221] hover:text-[#72D560] "
+            <Link
+              href="/#howitworks"
+              className="text-[#222221] hover:text-[#72D560] "
+            >
+              How it works
+            </Link>
+          </div>
+
+          <div className="flex space-x-4 max-lg:hidden">
+            <Link
+              target="_blank"
+              href="https://lockedin-two.vercel.app/login"
+              className="bg-white py-3 px-6 text-center flex items-center justify-center text-sm border border-[#F5F5F5] hover:[#fafafa] transition-all duration-300 rounded-xl"
+            >
+              Login
+            </Link>
+            <Link
+              target="_blank"
+              href="https://lockedin-two.vercel.app/register"
+              className="bg-[#72D560] py-3 px-6 text-center flex items-center justify-center text-sm hover:opacity-90 transition-all duration-300 rounded-xl"
+            >
+              Start now
+            </Link>
+          </div>
+
+          <button
+            type="button"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            className="lg:hidden bg-[#72D560] font-medium py-2 px-4 md:py-3 md:px-6 text-center flex items-center justify-center text-xs md:text-sm hover:opacity-90 transition-all duration-300 rounded-md cursor-pointer"
           >
-            How it works
-          </Link>
+            Menu
+          </button>
         </div>
+      </nav>
 
-        <div className="flex space-x-4 max-lg:hidden">
-          <Link
-            target="_blank"
-            href="https://lockedin-two.vercel.app/login"
-            className="bg-white py-3 px-6 text-center flex items-center justify-center text-sm border border-[#F5F5F5] hover:[#fafafa] transition-all duration-300 rounded-xl"
-          >
-            Login
-          </Link>
-          <Link
-            target="_blank"
-            href="https://lockedin-two.vercel.app/register"
-            className="bg-[#72D560] py-3 px-6 text-center flex items-center justify-center text-sm hover:opacity-90 transition-all duration-300 rounded-xl"
-          >
-            Start now
-          </Link>
-        </div>
-
-        <button
-          type="button"
-          className="lg:hidden bg-[#72D560] font-medium py-2 px-4 md:py-3 md:px-6 text-center flex items-center justify-center text-xs md:text-sm hover:opacity-90 transition-all duration-300 rounded-md cursor-pointer"
+      {/* Mobile Menu */}
+        <div
+          className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
+            isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
         >
-          Menu
-        </button>
-      </div>
-    </nav>
+          <div
+            className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[#72D560] z-50 transform transition-transform duration-300 ease-in-out ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
+          >
+            <div className="flex flex-col h-full">
+              {/* Close Button */}
+              <div className="flex justify-end p-6">
+                <button
+                  onClick={toggleMenu}
+                  className="text-black text-xl font-light w-8 h-8 border border-[#3BA229] flex items-center justify-center hover:opacity-70 transition-opacity rounded-full"
+                >
+                  <X strokeWidth={1.5} size={18}/>
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <div className="flex flex-col text-center space-y-8 px-8 mt-16">
+                <Link
+                  href="/"
+                  onClick={toggleMenu}
+                  className="text-black text-2xl font-medium hover:opacity-80 transition-opacity transform hover:translate-x-1 duration-200"
+                >
+                  Features
+                </Link>
+                <Link
+                  href="/#solution"
+                  onClick={toggleMenu}
+                  className="text-black text-2xl font-medium hover:opacity-80 transition-opacity transform hover:translate-x-1 duration-200"
+                >
+                  Solution
+                </Link>
+                <Link
+                  href="/#howitworks"
+                  onClick={toggleMenu}
+                  className="text-black text-2xl font-medium hover:opacity-80 transition-opacity transform hover:translate-x-1 duration-200"
+                >
+                  How it works
+                </Link>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col space-y-4 px-8 mt-16">
+                <Link
+                  target="_blank"
+                  href="https://lockedin-two.vercel.app/login"
+                  onClick={toggleMenu}
+                  className="bg-white text-black py-4 px-6 text-center text-lg font-medium rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105"
+                >
+                  Login
+                </Link>
+                <Link
+                  target="_blank"
+                  href="https://lockedin-two.vercel.app/register"
+                  onClick={toggleMenu}
+                  className="bg-[#5CBE4A] text-black py-4 px-6 text-center text-lg font-medium rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105"
+                >
+                  Start now
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+    </>
   );
 }

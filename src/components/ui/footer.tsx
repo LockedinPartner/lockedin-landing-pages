@@ -18,8 +18,8 @@ export function Footer() {
       <div className="w-full flex flex-col lg:flex-row gap-8 lg:gap-28">
         <ContactForm />
 
-        <div className="w-full flex flex-col items-start justify-between">
-          <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-16">
+        <div className="w-full flex flex-col items-start justify-between gap-10">
+          <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-16 max-lg:text-sm">
             <div>
               <h3 className="text-[#FFC727] font-semibold mb-3 text-xs">
                 INFO
@@ -88,21 +88,21 @@ export function Footer() {
           </div>
 
           {/* SOCIALS */}
-          <div className="w-full flex items-center justify-between">
+          <div className="w-full flex flex-col lg:flex-row lg:items-center gap-5 justify-between">
             <div>
               {socialLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.url}
-                  className="inline-flex items-center p-3 mr-5 gap-2 text-xs border border-[#222221]/10 hover:bg-[#222221]/10 transition-all duration-300 rounded-full cursor-pointer"
+                  className="inline-flex items-center p-2 md:p-3 mr-5 gap-2 text-xs border border-[#222221]/10 hover:bg-[#222221]/10 transition-all duration-300 rounded-full cursor-pointer"
                 >
-                  <link.icon color="#222221" fontSize={20} />
+                  <link.icon color="#222221" fontSize={20} className="max-md:w-4" />
                 </Link>
               ))}
             </div>
 
             <div>
-              <p className="text-xs text-[#151514] opacity-40">
+              <p className="text-[10px] md:text-xs text-[#151514] opacity-40">
                 LockedIN © 2025 — Copyright
               </p>
             </div>

@@ -19,7 +19,7 @@ export function Hero() {
               width={100}
               height={100}
               priority
-              className={`w-[55px] md:w-[88px] top-10 md:top-12 absolute left-[-1rem] md:left-[5vw]`}
+              className={`w-[55px] lg:w-[88px] top-10 md:top-12 absolute left-[-1rem] md:left-[5vw]`}
             />
 
             <Image
@@ -28,7 +28,7 @@ export function Hero() {
               width={100}
               height={100}
               priority
-              className={`w-[55px] md:w-[88px] absolute top-10 md:top-12 right-[-1rem] md:right-[5vw]`}
+              className={`w-[55px] lg:w-[88px] absolute top-10 md:top-12 right-[-1rem] md:right-[5vw]`}
             />
           </div>
           <h1 className="text-2xl md:text-4xl xl:text-5xl font-semibold text-center text-[#222221]">
@@ -109,11 +109,21 @@ export function Hero() {
               priority
             />
           </div>
+          <div className="lg:hidden">
+            <Image
+              width={107}
+              height={92}
+              className="relative max-md:w-14 max-lg:w-16 top-12 lg:top-8 "
+              src="/dart.svg"
+              alt="Dart"
+              priority
+            />
+          </div>
           <div className="flex items-center gap-4">
             <Image
               width={107}
               height={92}
-              className="relative max-md:w-14 top-12 lg:top-8 left-[-2rem]"
+              className="relative top-12 lg:top-8 left-[-2rem] max-lg:hidden"
               src="/dart.svg"
               alt="Dart"
               priority
@@ -140,7 +150,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="w-full h-px bg-[#CECECE]"/>
+      <div className="w-full h-px bg-[#CECECE]" />
     </>
   );
 }

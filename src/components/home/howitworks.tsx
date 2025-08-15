@@ -32,6 +32,7 @@ const data = [
 
 export function HowItWorks() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [dragStart, setDragStart] = useState(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -39,6 +40,30 @@ export function HowItWorks() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+   const handleDragStart = (e:any) => {
+     setDragStart(e.clientX || e.touches[0].clientX);
+   };
+
+   const handleDragEnd = (e:any) => {
+     if (!dragStart) return;
+
+     const dragEnd = e.clientX || e.changedTouches[0].clientX;
+     const dragDistance = dragStart - dragEnd;
+     const threshold = 50; // minimum swipe distance
+
+     if (Math.abs(dragDistance) > threshold) {
+       if (dragDistance > 0) {
+         // Swiped left, go to next
+         setCurrentIndex((prev) => (prev + 1) % data.length);
+       } else {
+         // Swiped right, go to previous
+         setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
+       }
+     }
+
+     setDragStart(null);
+   };
 
   return (
     <div className="w-full" id="howitworks">
@@ -90,7 +115,14 @@ export function HowItWorks() {
         </div>
 
         {/* Mobile/Tab Slider View */}
-        <div className="md:hidden w-full relative overflow-hidden h-[260px]">
+        <div
+          onMouseDown={handleDragStart}
+          onMouseUp={handleDragEnd}
+          onTouchStart={handleDragStart}
+          onTouchEnd={handleDragEnd}
+          style={{ userSelect: "none" }}
+          className="md:hidden w-full relative overflow-hidden h-[260px]"
+        >
           <AnimatePresence initial={false}>
             <motion.div
               key={currentIndex}

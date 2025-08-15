@@ -161,7 +161,7 @@ export function TargetAudience() {
           </div>
 
           {/* Image Slider with Text Overlay */}
-          <div className="relative w-full max-w-[580px] h-[207px] md:h-[320px] bg-[#72D560] p-2 rounded-2xl">
+          <div className="relative w-full max-w-[580px] h-[207px] md:h-[320px] bg-[#72D560] p-2 rounded-2xl lg:hidden">
             <AnimatePresence mode="sync" custom={direction}>
               <motion.div
                 key={currentStepData.id}

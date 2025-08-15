@@ -26,7 +26,7 @@ const steps = [
   },
   {
     id: 3,
-    image: "/target-3.png",
+    image: "/target-1.png",
     title: "Creative Professionals",
     description:
       "Monitor progress, earn badges, climb leaderboards, and unlock exclusive rewards.",
@@ -35,7 +35,7 @@ const steps = [
   },
   {
     id: 4,
-    image: "/target-1.png",
+    image: "/target-3.png",
     title: "Goal-Oriented Acheivers",
     description:
       "Track your progress, celebrate achievements, and stay motivated with like-minded partners.",
@@ -70,7 +70,6 @@ export function TargetAudience() {
           <div className="space-y-2 md:space-y-4 relative">
             {/* Vertical line */}
             {/* <div className="absolute left-[11px] top-0 h-full w-px bg-[#FFC727]"></div> */}
-
             {steps.map((step, index) => (
               <motion.div
                 key={step.id}
@@ -116,16 +115,16 @@ export function TargetAudience() {
             ))}
           </div>
 
-          <AnimatePresence mode="sync" custom={direction}>
+          <AnimatePresence mode="wait" custom={direction}>
             <div className="w-[480px] h-[320px] bg-[#72D560] p-3 rounded-2xl">
               <motion.div
                 key={currentStepData.id}
-                initial={{ opacity: 0, x: 100 * direction }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 * direction }}
+                initial={{ opacity: 0, y: -10 * direction }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 * direction }}
                 transition={{
-                  duration: 0.2,
-                  ease: [0.32, 0.72, 0, 1],
+                  duration: 0.7,
+                  ease: "easeInOut",
                 }}
                 className="relative w-[480px] h-[320px] rounded-2xl"
               >
@@ -146,7 +145,7 @@ export function TargetAudience() {
               <AnimatePresence mode="wait">
                 <motion.p
                   key={currentStepData.id}
-                  className="step-bottom-text mt-6 text-[#222221] text-2xl font-medium"
+                  className="step-bottom-text text-[#222221] text-2xl font-medium"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}

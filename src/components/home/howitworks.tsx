@@ -1,6 +1,9 @@
+"use client"
+import { useState, useEffect } from "react";
 import { Header } from "../ui/header";
 import Image from "next/image";
 import { MoveRight } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
   {
@@ -26,7 +29,17 @@ const data = [
   },
 ];
 
+
 export function HowItWorks() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % data.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="w-full" id="howitworks">
       <Header
@@ -36,7 +49,7 @@ export function HowItWorks() {
       />
 
       <div className="w-[93%] mx-auto py-12">
-        <div className="w-full flex flex-col md:flex-row justify-between items-start">
+        <div className="w-full hidden md:flex flex-col md:flex-row justify-between items-start">
           {data.map((item) => (
             <div
               key={item.id}
@@ -59,7 +72,7 @@ export function HowItWorks() {
                     } h-20 mx-auto`}
                   />
                   <div className="text-center">
-                    <h3 className="mt-4 text-lg font-semibold text-[#353131]">
+                    <h3 className="mt-4 md:text-lg font-semibold text-[#353131]">
                       {item.title}
                     </h3>
                     <p className="mt-4 text-[#72716F]">{item.description}</p>
@@ -74,6 +87,53 @@ export function HowItWorks() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Mobile/Tab Slider View */}
+        <div className="md:hidden w-full relative overflow-hidden h-[260px]">
+          <AnimatePresence initial={false}>
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -100 }}
+              transition={{ duration: 0.3 }}
+              className="absolute w-full px-4"
+            >
+              <div className="flex flex-col items-center text-center">
+                <Image
+                  src={data[currentIndex].image}
+                  alt={data[currentIndex].image}
+                  width={84}
+                  height={84}
+                  className={`${
+                    currentIndex === 0 ? "w-24" : "w-20"
+                  } h-20 mx-auto`}
+                />
+                <h3 className="mt-4 text-lg font-semibold text-[#353131]">
+                  {data[currentIndex].title}
+                </h3>
+                <p className="mt-4 text-[#72716F]">
+                  {data[currentIndex].description}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Bullet Indicators */}
+          <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+            {data.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`rounded-full transition-colors ${
+                  currentIndex === index
+                    ? "bg-[#72D560] w-2.5 h-2.5"
+                    : "bg-[#D9D9D9] w-2 h-2"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

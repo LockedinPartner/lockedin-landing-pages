@@ -5,13 +5,13 @@ import Link from "next/link";
 export function Hero() {
   return (
     <>
-      <div className="mt-8 mb-20 relative w-[93%] mx-auto py-16 bg-[#F0F0F0] flex flex-col items-center justify-center overflow-hidden">
+      <div className="mt-8 mb-14 md:mb-20 relative w-[93%] mx-auto max-lg:pb-8 py-16 bg-[#F0F0F0] flex flex-col items-center justify-center overflow-hidden">
         <div
           className="w-full absolute inset-0 bg-cover bg-center h-full rounded-4xl overflow-hidden"
           style={{ backgroundImage: "url('/hero-bg.png')" }}
         />
         {/* title and description section */}
-        <div className="z-10 mt-7 md:mt-10">
+        <div className="z-[11] mt-7 md:mt-10">
           <div className="absolute inset-0">
             <Image
               src={`/trophy.svg`}
@@ -44,7 +44,7 @@ export function Hero() {
           <div className="z-[11] relative mt-7 flex flex-row items-center justify-center space-x-4 md:space-x-7">
             <button
               type="button"
-              className="bg-white py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm border border-[#E0E0DE] lg:hover:bg-opacity-90 transition-all duration-300 rounded-xl lg:hover:bg-[#eee] cursor-pointer"
+              className="z-[11] relative bg-white py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm border border-[#E0E0DE] lg:hover:bg-opacity-90 transition-all duration-300 rounded-xl lg:hover:bg-[#eee] cursor-pointer"
             >
               Watch Demo
               <svg
@@ -53,7 +53,7 @@ export function Hero() {
                 viewBox="0 0 32 33"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="max-md:w-5"
+                className="max-md:w-6"
               >
                 <title>Demo svg</title>
                 <path
@@ -78,7 +78,7 @@ export function Hero() {
             <Link
               target="_blank"
               href="https://lockedin-two.vercel.app/register"
-              className="bg-[#72D560] py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm lg:hover:opacity-80 transition-all duration-300 rounded-xl cursor-pointer"
+              className="z-[11] relative bg-[#72D560] py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm lg:hover:opacity-80 transition-all duration-300 rounded-xl cursor-pointer"
             >
               Start now <ArrowRight className="max-md:w-5" />
             </Link>
@@ -86,25 +86,25 @@ export function Hero() {
         </div>
 
         {/* profile designs section */}
-        <div className="mt-2 w-full px-16 z-10 flex items-center justify-between space-x-6">
-          <div>
+        <div className="mt-2 relative w-full max-lg:top-[-1rem] lg:px-16 z-10 flex items-center justify-between space-x-6">
+          <div className="max-lg:hidden">
             <Image
               width={367}
               height={463}
               src="/hero-profile-one.png"
               alt="Profile One"
-              className="relative object-contain svg-smooth max-lg:hidden"
+              className="relative object-contain svg-smooth"
               quality={100}
               priority
             />
           </div>
-          <div>
+          <div className="w-fit lg:hidden">
             <Image
-              width={253}
-              height={320}
+              width={94}
+              height={94}
               src="/hero-profile-one-mobile.png"
               alt="Profile One"
-              className="w-full h-full relative object-contain svg-smooth lg:hidden"
+              className="relative object-contain svg-smooth"
               quality={100}
               priority
             />
@@ -113,7 +113,7 @@ export function Hero() {
             <Image
               width={107}
               height={92}
-              className="relative max-md:w-14 lg:top-8 lg:left-[-2rem]"
+              className="relative max-md:w-14 top-12 lg:top-8 left-[-2rem]"
               src="/dart.svg"
               alt="Dart"
               priority
@@ -128,11 +128,11 @@ export function Hero() {
               priority
             />
             <Image
-              width={331}
-              height={200}
+              width={94}
+              height={94}
               src="/hero-profile-two-mobile.png"
               alt="Profile Two"
-              className="w-full h-full relative object-contain svg-smooth lg:hidden"
+              className="relative object-contain svg-smooth lg:hidden"
               quality={100}
               priority
             />
@@ -140,7 +140,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="w-full h-px bg-[#CECECE]"></div>
+      <div className="w-full h-px bg-[#CECECE]"/>
     </>
   );
 }

@@ -48,7 +48,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className="lg:hidden bg-[#72D560] font-medium py-2 px-4 md:py-3 md:px-6 text-center flex items-center justify-center text-sm hover:opacity-90 transition-all duration-300 rounded-md cursor-pointer"
+          className="lg:hidden bg-[#72D560] font-medium py-2 px-4 md:py-3 md:px-6 text-center flex items-center justify-center text-xs md:text-sm hover:opacity-90 transition-all duration-300 rounded-md cursor-pointer"
         >
           Menu
         </button>

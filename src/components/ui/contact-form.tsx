@@ -5,13 +5,13 @@ import { Comments } from "../icons/comments";
 export function ContactForm() {
 	return (
 		<form className="w-full lg:max-w-[392px] mx-auto p-6 bg-[#FCFCFC] rounded-2xl md:rounded-lg">
-			<h2 className="text-xs mb-4 text-[#72D560]">FEEDBACK</h2>
+			<h2 className="text-xs mb-4 text-[#72D560]">CONTACT</h2>
 
-			<div className="max-lg:font-medium text-lg lg:text-2xl lg:tracking-tighter">
+			<div className="max-lg:font-medium text-lg lg:text-xl lg:tracking-tighter">
 				<p className="text-[#222221] lg:w-[80%] mb-2">
-					Focus with accountability, Earn rewards,
+					We're open to partnership, sponsorship and cracked talents to join our team.
 					<span className="text-[#A9A5B1]">
-						&nbsp;Level up your productivity
+						&nbsp;Leave a message for us.
 					</span>{" "}
 				</p>
 			</div>

@@ -102,7 +102,7 @@ export function TargetAudience() {
             {steps.map((step, index) => (
               <motion.div
                 key={step.id}
-                className="mt-6 md:mt-9 flex items-center gap-2 relative"
+                className="mt-6 md:mt-9 flex items-center gap-2 relative cursor-pointer"
                 initial={{ opacity: 0, x: -10 }}
                 animate={{
                   opacity: currentStep === index ? 1 : 0.5,

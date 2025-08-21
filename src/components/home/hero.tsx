@@ -43,7 +43,7 @@ export function Hero() {
 
           {/* button section */}
           <div className="z-[11] relative mt-7 flex flex-row items-stretch justify-center space-x-4 md:space-x-7">
-            <button
+            {/* <button
               type="button"
               className="z-[11] relative bg-white py-2 md:py-3 px-6 text-center font-medium flex items-center justify-center gap-1 text-xs md:text-sm border border-[#E0E0DE] lg:hover:bg-opacity-90 transition-all duration-300 rounded-xl lg:hover:bg-[#eee] cursor-pointer"
             >
@@ -75,7 +75,7 @@ export function Hero() {
                   strokeLinejoin="round"
                 />
               </svg>
-            </button>
+            </button> */}
             {/* <Link
               target="_blank"
               href="https://lockedin-two.vercel.app/register"

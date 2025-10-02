@@ -21,7 +21,7 @@ export default function CheckoutCallback() {
 
     // Fallback: after 2s, redirect to download page
     const timer = setTimeout(() => {
-      window.location.href = "/download"; // Your app download landing page
+        window.location.href = "https://play.google.com/store/apps/details?id=com.lockedinpartner.lockedin"; 
     }, 2000);
 
     return () => clearTimeout(timer);

@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/useExhaustiveDependencies: <explanation> */
 "use client";
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
@@ -5,12 +6,17 @@ import { useSearchParams } from "next/navigation";
 export default function SessionCallback() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get("sessionId");
+  const callRoom = searchParams.get("callRoom");
 
   useEffect(() => {
-    if (!sessionId) return;
+    if (!sessionId && !callRoom) return;
 
-    // Construct deep link to app
-    const appUrl = `lockedinapp://explore?sessionId=${sessionId}`;
+    let appUrl: string;
+    if (callRoom === "yes") {
+      appUrl = `lockedinapp://home?sessionId=${sessionId}`;
+    } else {
+      appUrl = `lockedinapp://explore?sessionId=${sessionId}`;
+    }
 
     // Try to open the app
     window.location.href = appUrl;

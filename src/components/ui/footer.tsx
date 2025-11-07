@@ -9,7 +9,7 @@ const socialLinks = [
   { name: "Facebook", url: "#", icon: Facebook },
   { name: "Instagram", url: "#", icon: Instagram },
   { name: "Youtube", url: "#", icon: Youtube },
-  { name: "Twitter", url: "https://x.com/LockedIN493029", icon: Twitter },
+  { name: "Twitter", url: "https://x.com/LockedInPartner", icon: Twitter },
 ];
 
 export function Footer() {

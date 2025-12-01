@@ -42,6 +42,14 @@ export function Navbar() {
             >
               How it works
             </Link>
+
+            <Link
+              href="https://lockedinpartner.substack.com/"
+              target="_blank"
+              className="text-[#222221] hover:text-[#72D560] "
+            >
+              Blog
+            </Link>
           </div>
 
           {/* <div className="flex space-x-4 max-lg:hidden">
@@ -124,6 +132,14 @@ export function Navbar() {
                 className="text-black text-2xl font-medium hover:opacity-80 transition-opacity transform hover:translate-x-1 duration-200"
               >
                 How it works
+              </Link>
+              <Link
+                href="https://lockedinpartner.substack.com/"
+                target="_blank"
+                onClick={toggleMenu}
+                className="text-black text-2xl font-medium hover:opacity-80 transition-opacity transform hover:translate-x-1 duration-200"
+              >
+                Blog
               </Link>
             </div>
 

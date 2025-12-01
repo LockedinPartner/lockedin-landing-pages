@@ -1,13 +1,19 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ContactForm } from "./contact-form";
 import { Twitter } from "../icons/twitter";
 import { Youtube } from "../icons/youtube";
-import { Instagram } from "../icons/instagram";
-import { Facebook } from "../icons/facebook";
 
-const socialLinks = [
-  { name: "Facebook", url: "#", icon: Facebook },
-  { name: "Instagram", url: "#", icon: Instagram },
+type SocialLink = {
+  name: string;
+  url: string;
+  icon?: any;
+  iconSrc?: string;
+};
+
+const socialLinks: SocialLink[] = [
+  { name: "Substack", url: "https://lockedinpartner.substack.com/", iconSrc: "/substack.png" },
+  { name: "LinkedIn", url: "#", iconSrc: "/lickedin icon.jpg" },
   { name: "Youtube", url: "#", icon: Youtube },
   { name: "Twitter", url: "https://x.com/LockedInPartner", icon: Twitter },
 ];
@@ -104,11 +110,17 @@ export function Footer() {
                   href={link.url}
                   className="inline-flex items-center p-2 md:p-3 mr-5 gap-2 text-xs border border-[#222221]/10 hover:bg-[#222221]/10 transition-all duration-300 rounded-full cursor-pointer"
                 >
-                  <link.icon
-                    color="#222221"
-                    fontSize={20}
-                    className="max-md:w-4"
-                  />
+                  {link.iconSrc ? (
+                    <Image
+                      src={link.iconSrc}
+                      alt={link.name}
+                      width={20}
+                      height={20}
+                      className="max-md:w-4 max-md:h-4 w-5 h-5 object-contain"
+                    />
+                  ) : (
+                    <link.icon color="#222221" fontSize={20} className="max-md:w-4" />
+                  )}
                 </Link>
               ))}
             </div>

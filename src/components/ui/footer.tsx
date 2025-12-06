@@ -3,6 +3,8 @@ import Image from "next/image";
 import { ContactForm } from "./contact-form";
 import { Twitter } from "../icons/twitter";
 import { Youtube } from "../icons/youtube";
+import { Substack } from "../icons/substack";
+import { Linkedin } from "../icons/linkedin";
 
 type SocialLink = {
   name: string;
@@ -12,8 +14,16 @@ type SocialLink = {
 };
 
 const socialLinks: SocialLink[] = [
-  { name: "Substack", url: "https://lockedinpartner.substack.com/", iconSrc: "/substack.png" },
-  { name: "LinkedIn", url: "#", iconSrc: "/lickedin icon.jpg" },
+  {
+    name: "Substack",
+    url: "https://lockedinpartner.substack.com/",
+    icon: Substack,
+  },
+  {
+    name: "LinkedIn",
+    url: "#",
+    icon: Linkedin,
+  },
   { name: "Youtube", url: "#", icon: Youtube },
   { name: "Twitter", url: "https://x.com/LockedInPartner", icon: Twitter },
 ];
@@ -97,7 +107,7 @@ export function Footer() {
             </div>
 
             <div className="text-black text-lg lg:text-2xl font-semibold lg:ml-auto">
-              LockedIn
+              LockedIN
             </div>
           </div>
 
@@ -119,7 +129,11 @@ export function Footer() {
                       className="max-md:w-4 max-md:h-4 w-5 h-5 object-contain"
                     />
                   ) : (
-                    <link.icon color="#222221" fontSize={20} className="max-md:w-4" />
+                    <link.icon
+                      color="#222221"
+                      fontSize={20}
+                      className="max-md:w-4"
+                    />
                   )}
                 </Link>
               ))}

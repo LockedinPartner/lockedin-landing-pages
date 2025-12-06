@@ -1,17 +1,21 @@
 export function Substack(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
+      role="img"
       viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      id="Substack--Streamline-Simple-Icons"
+      height="18"
+      width="18"
       {...props}
     >
-      <g fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="3" y="4" width="18" height="3.5" rx="0.75" />
-        <rect x="3" y="9" width="18" height="3.5" rx="0.75" />
-        <path d="M12 13.5v6.75l-6-3.5v-3.25zm0 0v6.75l6-3.5v-3.25z" />
-      </g>
+      <desc>Substack Streamline Icon: https://streamlinehq.com</desc>
+      <title>Substack</title>
+      <path
+        d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"
+        fill="#000000"
+        strokeWidth="1"
+      ></path>
     </svg>
   );
 }

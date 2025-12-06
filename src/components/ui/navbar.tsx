@@ -3,6 +3,8 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useWaitlistModal } from "../home/waitlist-provider";
+import { Apple } from "../icons/apple";
+import { Playstore } from "../icons/playstore";
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,27 +20,27 @@ export function Navbar() {
       <nav className="bg-[#F7F7F7] w-[93%] lg:w-[85vw] mx-auto border border-[#ECECEC] py-3 px-6 md:p-4 rounded-2xl mt-5 md:mt-7">
         <div className="container mx-auto flex justify-between items-center">
           <div className="text-black text-base md:text-xl font-semibold">
-            LockedIn
+            LockedIN
           </div>
 
           <div className="relative left-10 flex space-x-10 max-lg:hidden">
             <Link
               href="/#features"
-              className="text-[#222221] hover:text-[#72D560] squiggly-underline "
+              className="text-[#222221] hover:text-[#D7EAD7] squiggly-underline "
             >
               Features
             </Link>
 
             <Link
               href="/#solution"
-              className="text-[#222221] hover:text-[#72D560] "
+              className="text-[#222221] hover:text-[#D7EAD7] "
             >
               Solution
             </Link>
 
             <Link
               href="/#howitworks"
-              className="text-[#222221] hover:text-[#72D560] "
+              className="text-[#222221] hover:text-[#D7EAD7] "
             >
               How it works
             </Link>
@@ -46,7 +48,7 @@ export function Navbar() {
             <Link
               href="https://lockedinpartner.substack.com/"
               target="_blank"
-              className="text-[#222221] hover:text-[#72D560] "
+              className="text-[#222221] hover:text-[#D7EAD7] "
             >
               Blog
             </Link>
@@ -63,7 +65,7 @@ export function Navbar() {
             <Link
               target="_blank"
               href="https://lockedin-two.vercel.app/register"
-              className="bg-[#72D560] py-3 px-6 text-center flex items-center justify-center text-sm hover:opacity-90 transition-all duration-300 rounded-xl"
+              className="bg-[#D7EAD7] py-3 px-6 text-center flex items-center justify-center text-sm hover:opacity-90 transition-all duration-300 rounded-xl"
             >
               Start now
             </Link>
@@ -72,16 +74,22 @@ export function Navbar() {
           <Link
             href="https://play.google.com/store/apps/details?id=com.lockedinpartner.lockedin&hl=en"
             target="_blank"
-            className="max-lg:hidden bg-[#72D560] py-3 px-6 text-center flex items-center justify-center text-sm hover:opacity-90 transition-all duration-300 rounded-xl cursor-pointer"
+            className="max-lg:hidden bg-[#D7EAD7] border border-[#CDE5CD] py-3 px-3 text-center flex items-center justify-center gap-2 text-sm text-[#037D03] font-semibold hover:opacity-90 transition-all duration-300 rounded-xl cursor-pointer"
+            style={{
+              boxShadow: "0px 2px 4px 0px #2EC66B0A",
+            }}
           >
-            Download App
+            <div className="flex items-center justify-center gap-3">
+              <Apple /> <div className="w-px h-6 bg-[#81BE81]" /> <Playstore />
+            </div>
+            Get App
           </Link>
 
           <button
             type="button"
             onClick={toggleMenu}
             aria-label="Toggle menu"
-            className="lg:hidden bg-[#72D560] font-medium py-2 px-4 md:py-3 md:px-6 text-center flex items-center justify-center text-xs md:text-sm hover:opacity-90 transition-all duration-300 rounded-md cursor-pointer"
+            className="lg:hidden bg-[#5CBE4A] font-medium py-2 px-4 md:py-3 md:px-6 text-center flex items-center justify-center text-xs md:text-sm hover:opacity-90 transition-all duration-300 rounded-md cursor-pointer"
           >
             Menu
           </button>
@@ -95,7 +103,7 @@ export function Navbar() {
         }`}
       >
         <div
-          className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[#72D560] z-50 transform transition-transform duration-300 ease-in-out ${
+          className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[#D7EAD7] z-50 transform transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -170,7 +178,7 @@ export function Navbar() {
               }}
               className="bg-[#5CBE4A] mx-8 mt-16 text-black py-4 px-6 text-center text-lg font-medium rounded-xl hover:opacity-90 transition-all duration-200 hover:scale-105"
             >
-              Download App
+              Get App
             </Link>
           </div>
         </div>

@@ -44,7 +44,7 @@
 <path d="M44.087 81.4375H16.6235V49.0886C16.6235 48.2903 17.2707 47.6431 18.0691 47.6431H42.6415C43.4399 47.6431 44.087 48.2903 44.087 49.0886V81.4375Z" fill="url(#paint2_linear_467_9953)"/>
 <path d="M23.6647 81.4375H0.525477C0.235258 81.4375 0 81.2023 0 80.912V59.0139C0 58.2156 0.647191 57.5684 1.44557 57.5684H22.2191C23.0175 57.5684 23.6647 58.2156 23.6647 59.0139V81.4375Z" fill="#444441"/>
 </g>
-<rect x="1.5" y="1.5" width="81" height="81" rx="40.5" stroke="black" stroke-width="3"/>
+<rect x="1.5" y="1.5" width="81" height="81" rx="40.5" stroke="black" strokeWidth="3"/>
 <defs>
 <linearGradient id="paint0_linear_467_9953" x1="62.3659" y1="112.854" x2="74.082" y2="-49.5533" gradientUnits="userSpaceOnUse">
 <stop stop-color="#BBEBB2"/>

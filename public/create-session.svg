@@ -29,7 +29,7 @@
 <path d="M77.389 84.0002L73.2947 83.8174L65.2759 62.7774L69.2098 61.3564L77.389 84.0002Z" fill="#374763"/>
 <path d="M63.5864 84.0001H59.9875L53.8169 66.9164L57.0003 65.7666L63.5864 84.0001Z" fill="#597099"/>
 </g>
-<rect x="1.5" y="1.5" width="81" height="81" rx="40.5" stroke="black" stroke-width="3"/>
+<rect x="1.5" y="1.5" width="81" height="81" rx="40.5" stroke="black" strokeWidth="3"/>
 <defs>
 <clipPath id="clip0_467_9913">
 <rect width="84" height="84" rx="42" fill="white"/>

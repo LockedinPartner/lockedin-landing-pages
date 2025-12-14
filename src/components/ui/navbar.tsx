@@ -26,21 +26,21 @@ export function Navbar() {
           <div className="relative left-10 flex space-x-10 max-lg:hidden">
             <Link
               href="/#features"
-              className="text-[#222221] hover:text-[#D7EAD7] squiggly-underline "
+              className="text-[#222221] hover:text-[#3BA229] squiggly-underline "
             >
               Features
             </Link>
 
             <Link
               href="/#solution"
-              className="text-[#222221] hover:text-[#D7EAD7] "
+              className="text-[#222221] hover:text-[#3BA229] "
             >
               Solution
             </Link>
 
             <Link
               href="/#howitworks"
-              className="text-[#222221] hover:text-[#D7EAD7] "
+              className="text-[#222221] hover:text-[#3BA229] "
             >
               How it works
             </Link>
@@ -48,7 +48,7 @@ export function Navbar() {
             <Link
               href="https://lockedinpartner.substack.com/"
               target="_blank"
-              className="text-[#222221] hover:text-[#D7EAD7] "
+              className="text-[#222221] hover:text-[#3BA229] "
             >
               Blog
             </Link>
@@ -98,14 +98,12 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${
-          isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden transition-opacity duration-300 ${isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div
-          className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[#D7EAD7] z-50 transform transition-transform duration-300 ease-in-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[#D7EAD7] z-50 transform transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
+            }`}
         >
           <div className="flex flex-col h-full">
             {/* Close Button */}

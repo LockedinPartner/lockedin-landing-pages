@@ -2,56 +2,53 @@
 import { Header } from "../ui/header";
 import { motion, AnimatePresence, PanInfo } from "framer-motion";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { FlowbiteArrowRight } from "../icons/flowbiteArrowRight";
 
-const steps = [
-	{
-		id: 1,
-		image: "/target-1.png",
-		title: "University Students",
-		description:
-			"Tell us about your goals, schedule, and work style. Our algorithm finds your perfect match.",
-		rightText:
-			"Study sessions, project work, exam prep - stay focused with fellow students who understand the grind.",
-	},
-	{
-		id: 2,
-		image: "/target-2.png",
-		title: "Remote Workers",
-		description:
-			"Begin focused sessions together. Set intentions, track time, and stay accountable.",
-		rightText:
-			"Remote work, freelancing, or side hustles - collaborate with peers who share your ambitions.",
-	},
-	{
-		id: 3,
-		image: "/target-1.png",
-		title: "Creative Professionals",
-		description:
-			"Monitor progress, earn badges, climb leaderboards, and unlock exclusive rewards.",
-		rightText:
-			"Creative projects, writing, or personal goals - find inspiration and accountability in a supportive community",
-	},
-	{
-		id: 4,
-		image: "/target-3.png",
-		title: "Goal-Oriented Acheivers",
-		description:
-			"Track your progress, celebrate achievements, and stay motivated with like-minded partners.",
-		rightText:
-			"Whether you're pursuing fitness, learning, or personal growth, LockedIn helps you stay on track.",
-	},
+const testimonials = [
+  {
+    id: 1,
+    name: "Chinedu Okafor",
+    country: "Nigeria",
+    testimonial: "LockedIn helped me stay consistent with my writing goals. The accountability alone changed everything for me.",
+    initials: "CO",
+  },
+  {
+    id: 2,
+    name: "Ama Serwaa",
+    country: "Ghana",
+    testimonial: "The community keeps me focused. I get things done faster and with more energy.",
+    initials: "AS",
+  },
+  {
+    id: 3,
+    name: "Thabo Mokoena",
+    country: "South Africa",
+    testimonial: "I finally finished my design portfolio because I wasn't working alone. The support here is unmatched.",
+    initials: "TM",
+  },
+  {
+    id: 4,
+    name: "Aisha Suleiman",
+    country: "Kenya",
+    testimonial: "The work sessions keep me disciplined. I love how easy it is to track my progress.",
+    initials: "AS",
+  },
+  {
+    id: 5,
+    name: "Blessing Ncube",
+    country: "Zimbabwe",
+    testimonial: "LockedIn gave me structure at a time I really needed it. Now my personal projects are moving again.",
+    initials: "BN",
+  },
 ];
 
 export function TargetAudience() {
-	const [currentStep, setCurrentStep] = useState(0);
-	const [direction, setDirection] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
+  const [direction, setDirection] = useState(1);
 
-	useEffect(() => {
+  useEffect(() => {
     const interval = setInterval(() => {
-      setDirection(1); // Auto-advance always goes forward
-      setCurrentStep((prevStep) => (prevStep + 1) % steps.length);
+      setDirection(1);
+      setCurrentStep((prevStep) => (prevStep + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -59,13 +56,11 @@ export function TargetAudience() {
   const handleDragEnd = (event: any, info: PanInfo) => {
     const swipeThreshold = 50;
     if (info.offset.x > swipeThreshold) {
-      // Swiped right - go backward
       setDirection(-1);
-      setCurrentStep((prev) => (prev === 0 ? steps.length - 1 : prev - 1));
+      setCurrentStep((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
     } else if (info.offset.x < -swipeThreshold) {
-      // Swiped left - go forward
       setDirection(1);
-      setCurrentStep((prev) => (prev + 1) % steps.length);
+      setCurrentStep((prev) => (prev + 1) % testimonials.length);
     }
   };
 
@@ -85,115 +80,20 @@ export function TargetAudience() {
     }),
   };
 
-	const currentStepData = steps[currentStep];
+  const currentTestimonial = testimonials[currentStep];
 
-	return (
-    <div className="w-full mt-8 overflow-x-hidden" id="howitworks">
+  return (
+    <div className="w-full mt-8 overflow-x-hidden" id="testimonials">
       <Header
         title=" Built for Ambitious People"
-        description="Whether you're studying, working remotely, or pursuing creative projects, LockedIn connects you with like-minded individuals."
+        description="Here's what our beta testers are saying…"
       />
 
       <div className="w-[93%] mx-auto max-lg:pb-6 py-12 max-lg:px-3">
-        <div className="w-full flex flex-col lg:flex-row justify-between items-center gap-6">
-          <div className="space-y-2 md:space-y-4 relative max-lg:hidden">
-            {/* Vertical line */}
-            {/* <div className="absolute left-[11px] top-0 h-full w-px bg-[#FFC727]"></div> */}
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.id}
-                className="mt-6 md:mt-9 flex items-center gap-2 relative cursor-pointer"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{
-                  opacity: currentStep === index ? 1 : 0.5,
-                  x: 0,
-                }}
-                transition={{
-                  duration: 0.5,
-                  ease: "easeInOut",
-                }}
-                onClick={() => {
-                  setDirection(currentStep > index ? -1 : 1);
-                  setCurrentStep(index);
-                }}
-              >
-                {/* Arrow indicator */}
-                {currentStep === index && (
-                  <motion.div
-                    className="absolute -left-[1px]"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 500,
-                      damping: 15,
-                    }}
-                  >
-                    <FlowbiteArrowRight color="#FFC727" fontSize={20} />
-                  </motion.div>
-                )}
-                <motion.p
-                  whileHover={{ scale: currentStep === index ? 1 : 1.05 }}
-                  className={`font-semibold text-2xl ml-6 ${
-                    currentStep === index ? "text-[#222221]" : "text-[#B1AEB7]"
-                  }`}
-                >
-                  {step.title}
-                </motion.p>
-              </motion.div>
-            ))}
-          </div>
-
-          <AnimatePresence mode="wait" custom={direction}>
-            <div className="w-[93%] lg:w-[480px] h-[207px] lg:h-[320px] bg-[#72D560] p-1 lg:p-3 rounded-2xl max-lg:hidden">
-              <motion.div
-                key={currentStepData.id}
-                initial={{ opacity: 0, y: -10 * direction }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 10 * direction }}
-                transition={{
-                  duration: 0.7,
-                  ease: "easeInOut",
-                }}
-                className="relative max-lg:left-2 max-lg:top-1 w-full lg:w-[480px] h-[207px] lg:h-[320px] rounded-2xl"
-              >
-                <Image
-                  width={480}
-                  height={320}
-                  src={currentStepData.image}
-                  alt={currentStepData.title}
-                  priority
-                  className="w-full lg:w-[480px] h-[207px] lg:h-[320px] object-cover rounded-2xl"
-                />
-              </motion.div>
-            </div>
-          </AnimatePresence>
-
-          <div className="max-w-[366px] max-lg:hidden">
-            <div className="h-12">
-              <AnimatePresence mode="wait">
-                <motion.p
-                  key={currentStepData.id}
-                  className="step-bottom-text text-[#222221] text-2xl font-medium"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {currentStepData.rightText}
-                </motion.p>
-              </AnimatePresence>
-            </div>
-          </div>
-
-          {/* Mobile Image Slider with Text Overlay */}
-          <div className="relative w-full max-w-[580px] mx-auto h-[227px] md:h-[340px] lg:hidden">
-            <div className="absolute  overflow-hidden z-0" />
-
-            <AnimatePresence mode="sync" custom={direction}>
+        <div className="w-full flex justify-center">
+          {/* Testimonial Carousel */}
+          <div className="relative w-full max-w-[580px] lg:max-w-[680px] h-auto">
+            <AnimatePresence mode="wait" custom={direction}>
               <motion.div
                 key={currentStep}
                 drag="x"
@@ -205,60 +105,66 @@ export function TargetAudience() {
                 animate="center"
                 exit="exit"
                 transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                className="absolute inset-0 bg-[#72D560] rounded-2xl z-10"
+                className="bg-white rounded-2xl p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.08)] border-b-4 border-[#3ED06E]"
               >
-                {/* Image Container */}
-                <div className="relative left-2.5 top-2.5 h-full w-full">
-                  {/* Dark Overlay */}
-                  <div className="absolute inset-0 bg-black/30 z-10 rounded-2xl" />
+                {/* Avatar and Info */}
+                <div className="flex items-center gap-4 mb-6">
+                  {/* Circular Avatar */}
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-[#3ED06E] to-[#2AB857] flex items-center justify-center flex-shrink-0">
+                    <span className="text-white font-bold text-lg md:text-xl">
+                      {currentTestimonial.initials}
+                    </span>
+                  </div>
 
-                  {/* Image */}
-                  <Image
-                    fill
-                    src={currentStepData.image}
-                    alt={currentStepData.title}
-                    priority
-                    className="relative z-[1] object-cover w-full h-[207px] md:h-[320px] rounded-2xl "
-                  />
-                </div>
-
-                {/* Text Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-                  <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      delay: 0.2,
-                      duration: 0.6,
-                      ease: "easeInOut",
-                    }}
-                  >
-                    <h2 className="text-[#F5F5F5] text-base font-semibold mb-2">
-                      {currentStepData.title}
-                    </h2>
-                    <p className="text-[#F3F2F2] text-sm font-thin">
-                      {currentStepData.rightText}
+                  {/* Name and Country */}
+                  <div>
+                    <h3 className="text-[#222221] font-semibold text-lg md:text-xl">
+                      {currentTestimonial.name}
+                    </h3>
+                    <p className="text-[#6B7280] text-sm md:text-base">
+                      {currentTestimonial.country}
                     </p>
-                  </motion.div>
+                  </div>
                 </div>
+
+                {/* Testimonial Text */}
+                <motion.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                  className="text-[#374151] text-base md:text-lg leading-relaxed"
+                >
+                  "{currentTestimonial.testimonial}"
+                </motion.p>
+
+                {/* Green accent underline */}
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: "60px" }}
+                  transition={{ delay: 0.4, duration: 0.6 }}
+                  className="h-1 bg-[#3ED06E] rounded-full mt-6"
+                />
               </motion.div>
             </AnimatePresence>
           </div>
+        </div>
 
-          {/* Bullet Indicators */}
-          <div className="mt-3 lg:hidden flex items-center justify-center gap-2">
-            {steps.map((step, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentStep(index)}
-                className={`rounded-full transition-colors ${
-                  currentStepData.id === step.id
-                    ? "bg-[#72D560] w-2.5 h-2.5"
-                    : "bg-[#D9D9D9] w-2 h-2"
+        {/* Bullet Indicators */}
+        <div className="mt-8 flex items-center justify-center gap-2">
+          {testimonials.map((testimonial, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(currentStep > index ? -1 : 1);
+                setCurrentStep(index);
+              }}
+              className={`rounded-full transition-all duration-300 ${currentTestimonial.id === testimonial.id
+                ? "bg-[#3ED06E] w-8 h-2.5"
+                : "bg-[#D9D9D9] w-2.5 h-2.5 hover:bg-[#B1AEB7]"
                 }`}
-              />
-            ))}
-          </div>
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))}
         </div>
       </div>
     </div>
